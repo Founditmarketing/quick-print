@@ -1,1 +1,17 @@
-{"cleanUrls":true,"trailingSlash":false,"headers":[{"source":"/(.*)", "headers":[{"key":"Cache-Control","value":"public, max-age=3600, stale-while-revalidate=86400"}]}]}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    { "source": "/(.*)\.html", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] },
+    { "source": "/wp-content/et-cache/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=60, stale-while-revalidate=3600" }] },
+    { "source": "/wp-content/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }] }
+  ],
+  "redirects": [
+    { "source": "/index.php/:path*", "destination": "/:path*", "statusCode": 301 },
+    { "source": "/xmlrpc.php", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-login.php", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-admin/:path*", "destination": "/", "statusCode": 301 },
+    { "source": "/feed/:path*", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-json/:path*", "destination": "/", "statusCode": 301 }
+  ]
+}
